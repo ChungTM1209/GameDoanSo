@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+    var nums = [];
+    for (var i = 0; i < 100; i++) {
+        nums.push(i);
+    }
+    var data = 82;
+    var guess;
+
+    function binSearch(arr, data, guess) {
+        var min = 0;
+        var max = arr.length - 1;
+        while (guess !== data) {
+            var mid = (min + max) / 2;
+            var guess = parseInt(prompt("Input number guess: "));
+            if (guess < data) {
+                min = guess + 1;
+                alert("Too Low");
+                mid = (min + max) / 2;
+                alert("Min: " + min + " .Max: " + max + " .Mid: " + mid);
+            }
+            if (guess > data) {
+                max = guess - 1;
+                alert("Too High");
+                mid = (min + max) / 2;
+                alert("Min: " + min + " .Max: " + max + " .Mid: " + mid);
+            }
+        }
+        alert("Correct");
+    }
+
+    binSearch(nums, data, guess);
+</script>
+</body>
+</html>
